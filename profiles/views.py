@@ -21,10 +21,11 @@ class ProfileList(APIView):
 
 class ProfileDetail(APIView):
     """
-    Retrieves a single profile with the profile primary key.
+    Retrieves a single profile by the profile id.
     """
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
     def get_object(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
@@ -42,7 +43,7 @@ class ProfileDetail(APIView):
 
     def put(self, request, pk):
         """
-        Function to edit a profile
+        Edit profile
         """
         profile = self.get_object(pk)
         serializer = ProfileSerializer(
