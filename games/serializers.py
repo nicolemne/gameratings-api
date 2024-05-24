@@ -9,11 +9,13 @@ class GameSerializer(serializers.ModelSerializer):
     'title', 'developer', 'genre', and 'platform'
     """
     average_star_rating = serializers.ReadOnlyField()
+    slug = serializers.ReadOnlyField()
 
     class Meta:
         model = Game
         fields = [
-            'id', 'title', 'developer', 'genre', 'platform', 'average_star_rating'
+            'id', 'title', 'developer', 'genre',
+            'platform', 'average_star_rating', 'slug'
         ]
 
     def create(self, validated_data):

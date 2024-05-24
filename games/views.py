@@ -19,3 +19,4 @@ class GameDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = GameSerializer
     queryset = Game.objects.all()
+    lookup_field = 'slug'
