@@ -11,3 +11,19 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
         return obj.owner == request.user
+
+
+class IsAdminOrOwnerOrReadOnly(permissions.BasePermission):
+    """
+    Custom permission to only allow owners to edit, 
+    and only admins to delete. All users can send 
+    GET requests to retrieve.
+    """
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        
+        if request.method == 'DELETE':
+            return request.user and request.user.is_staff
+        
+        return obj.owner == request.user

@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions
+from rest_framework.exceptions import PermissionDenied
 from gameratings.permissions import IsOwnerOrReadOnly
 from .models import Game
 from .serializers import GameSerializer
