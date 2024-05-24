@@ -9,7 +9,7 @@ from gameratings.permissions import IsOwnerOrReadOnly
 
 class PostList(APIView):
     """
-    Lists all posts
+    Lists all posts and allows owner to create a post
     """
     serializer_class = PostSerializer
     permission_classes = [
@@ -43,7 +43,8 @@ class PostList(APIView):
 
 class PostDetail(APIView):
     """
-    Retrieves a single post by the post id.
+    Retrieves a single post by id which the owner
+    can edit or delete
     """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
