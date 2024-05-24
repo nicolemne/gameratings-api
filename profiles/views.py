@@ -52,4 +52,6 @@ class ProfileDetail(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
