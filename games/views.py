@@ -1,5 +1,4 @@
 from rest_framework import generics, permissions
-from rest_framework.exceptions import PermissionDenied
 from gameratings.permissions import IsAdminOrOwnerOrReadOnly
 from .models import Game
 from .serializers import GameSerializer
@@ -12,8 +11,9 @@ class GameList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = GameSerializer
     queryset = Game.objects.all()
+    
 
-class GameDetail(generics.RetrieveUpdateAPIView):
+class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve or update a game instance. Only admins can delete
     a game instance.

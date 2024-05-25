@@ -17,7 +17,8 @@ class IsAdminOrOwnerOrReadOnly(permissions.BasePermission):
     """
     Custom permission to only allow owners to edit, 
     and only admins to delete. All users can send 
-    GET requests to retrieve.
+    GET requests to retrieve. Checks if user is 
+    admin with user.is_staff.
     """
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
@@ -26,4 +27,7 @@ class IsAdminOrOwnerOrReadOnly(permissions.BasePermission):
         if request.method == 'DELETE':
             return request.user and request.user.is_staff
         
-        return obj.owner == request.user
+        if request.method in ['PUT', 'PATCH']:
+            return obj.posts.filter(owner=request.user).exists()
+        
+        return False
