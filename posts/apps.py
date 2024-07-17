@@ -6,7 +6,7 @@ class PostsConfig(AppConfig):
     name = 'posts'
 
     def ready(self):
-        '''
+        """
         Connect signals from signals.py
-        '''
+        """
         import posts.signals

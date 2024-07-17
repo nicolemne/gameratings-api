@@ -6,7 +6,7 @@ class GameSerializer(serializers.ModelSerializer):
     """
     Serializer for the Game model
     The create method handles the unique constraint on 
-    'title', 'developer', 'genre', and 'platform'
+    'title', 'game_developer', 'genre', and 'platform'
     """
     average_star_rating = serializers.ReadOnlyField()
     slug = serializers.ReadOnlyField()
@@ -14,7 +14,7 @@ class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = [
-            'id', 'title', 'developer', 'genre',
+            'id', 'title', 'game_developer', 'genre',
             'platform', 'average_star_rating', 'slug'
         ]
 
@@ -26,7 +26,7 @@ class NewGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = [
-            'title', 'developer', 'genre', 'platform'
+            'title', 'game_developer', 'genre', 'platform'
         ]
 
     def create(self, validated_data):

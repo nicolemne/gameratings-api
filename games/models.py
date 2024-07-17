@@ -4,9 +4,11 @@ from django.utils.text import slugify
 class Game(models.Model):
     """
     Game model that stores information about the games
-    that are reviewed. Generates a URL-slug from the title.
+    that are reviewed. Generates a URL-slug from the title 
+    and platform name.
     """
     title = models.CharField(max_length=255)
+    game_developer = models.CharField(max_length=255)
     platform = models.ForeignKey(
         'platforms.Platform', on_delete=models.CASCADE, related_name='games'
         )
@@ -23,8 +25,8 @@ class Game(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(f"{self.title} {self.platform.name}")
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.platform.name})'
