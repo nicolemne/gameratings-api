@@ -10,11 +10,12 @@ class GameAdmin(admin.ModelAdmin):
     Uses autocomplete for Platform and Genre.
     '''
     list_display = ('title', 'game_developer', 'platform', 
-                    'genre', 'average_star_rating', 'slug'
+                    'genre', 'average_star_rating', 'slug',
+                    'multiplayer',
                     )
     search_fields = ('title', 'game_developer', 'platform__name', 
                      'genre__name'
                      )
-    list_filter = ('platform', 'genre')
+    list_filter = ('platform', 'genre', 'multiplayer')
     autocomplete_fields = ['platform', 'genre']
     exclude = ('average_star_rating', 'slug')

@@ -14,8 +14,8 @@ class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = [
-            'id', 'title', 'game_developer', 'genre',
-            'platform', 'average_star_rating', 'slug'
+            'id', 'title', 'game_developer', 'genre', 'platform', 
+            'average_star_rating', 'slug', 'multiplayer'
         ]
 
 
@@ -26,7 +26,8 @@ class NewGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = [
-            'title', 'game_developer', 'genre', 'platform'
+            'title', 'game_developer', 'genre', 'platform',
+            'multiplayer'
         ]
 
     def create(self, validated_data):

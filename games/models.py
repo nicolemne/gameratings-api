@@ -17,6 +17,7 @@ class Game(models.Model):
         )
     average_star_rating = models.FloatField(default=0.0)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
+    multiplayer = models.BooleanField(default=False)
 
     class Meta:
         unique_together = (
