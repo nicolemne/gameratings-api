@@ -4,7 +4,7 @@ from .models import Genre
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     '''
-    Customises the Genre admin view to display and search genres
-    ''' 
+    Customizes the Genre admin view to display and search genres.
+    '''
     list_display = ('name',)
     search_fields = ('name',)
