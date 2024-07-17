@@ -6,4 +6,4 @@ class Platform(models.Model):
     release_date = models.DateTimeField()
 
     def __str__(self):
-        return self.names
+        return self.name

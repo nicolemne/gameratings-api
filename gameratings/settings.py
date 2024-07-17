@@ -35,7 +35,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/',]
+ALLOWED_HOSTS = ['localhost', 'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/', 
+                 '8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net']
 
 
 # Application definition

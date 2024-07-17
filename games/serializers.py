@@ -18,6 +18,17 @@ class GameSerializer(serializers.ModelSerializer):
             'platform', 'average_star_rating', 'slug'
         ]
 
+
+class NewGameSerializer(serializers.ModelSerializer):
+    """
+    Serializer for creating a new game.
+    """
+    class Meta:
+        model = Game
+        fields = [
+            'title', 'developer', 'genre', 'platform'
+        ]
+
     def create(self, validated_data):
         try:
             return super().create(validated_data)
