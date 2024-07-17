@@ -36,6 +36,7 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
+    star_rating = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-created_at']

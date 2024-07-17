@@ -14,3 +14,4 @@ class GameAdmin(admin.ModelAdmin):
     list_filter = ('platform', 'genre')
     prepopulated_fields = {'slug': ('title',)}
     autocomplete_fields = ['platform', 'genre']
+    exclude = ('average_star_rating',)
