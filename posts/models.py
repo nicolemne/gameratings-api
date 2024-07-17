@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
 from games.models import Game
 
 
@@ -36,7 +37,10 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
-    star_rating = models.PositiveIntegerField(default=0)
+    star_rating = models.PositiveIntegerField(
+        default=0,
+        validators=[MaxValueValidator(5)]
+    )
 
     class Meta:
         ordering = ['-created_at']

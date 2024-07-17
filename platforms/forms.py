@@ -8,9 +8,13 @@ class PlatformForm(forms.ModelForm):
     '''
     release_date = forms.DateField(
         widget=forms.NumberInput(attrs={
-            'type': 'number', 'min': '1900', 'max': '2100', 'step': '1', 'placeholder': 'YYYY'
-            }),
-        input_formats=['%Y']
+            'type': 'number',  # HTML input type set to number
+            'min': '1900',  # Minimum year
+            'max': '2100',  # Maximum year
+            'step': '1',  # Step for the input, allows only whole numbers
+            'placeholder': 'YYYY'  # Placeholder text
+        }),
+        input_formats=['%Y']  # Only accept the year format
     )
 
     class Meta:
