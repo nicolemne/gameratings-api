@@ -1,6 +1,28 @@
 from rest_framework import serializers
 from django.db import IntegrityError
 from .models import Game
+from platforms.models import Platform
+from genres.models import Genre
+
+
+class PlatformSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Platform model.
+    Display the platform name as well as ID.
+    """
+    class Meta:
+        model = Platform
+        fields = ['id', 'name']
+
+class GenreSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Genre model.
+    Display the genre name as well as ID.
+    """
+    class Meta:
+        model = Genre
+        fields = ['id', 'name']
+        
 
 class GameSerializer(serializers.ModelSerializer):
     """
@@ -10,12 +32,17 @@ class GameSerializer(serializers.ModelSerializer):
     """
     average_star_rating = serializers.ReadOnlyField()
     slug = serializers.ReadOnlyField()
+    posts_count = serializers.ReadOnlyField()
+    unique_reviewers_count = serializers.ReadOnlyField()
+    platform = PlatformSerializer(read_only=True)
+    genre = GenreSerializer(read_only=True)
 
     class Meta:
         model = Game
         fields = [
             'id', 'title', 'game_developer', 'genre', 'platform', 
-            'average_star_rating', 'slug', 'multiplayer'
+            'average_star_rating', 'slug', 'multiplayer',
+            'posts_count', 'unique_reviewers_count',
         ]
 
 

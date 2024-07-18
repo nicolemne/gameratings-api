@@ -35,8 +35,17 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/', 
-                 '8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    'localhost', 
+    'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/',
+    '8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net',
+    ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost', 
+    'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/',
+    'https://8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net',
+    ]
 
 
 # Application definition
@@ -51,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'django_filters',
 
     'profiles',
     'posts',
@@ -61,6 +71,12 @@ INSTALLED_APPS = [
     'platforms',
     'genres',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
