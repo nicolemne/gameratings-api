@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'games',
     'platforms',
     'genres',
+    'saved_games',
 ]
 
 REST_FRAMEWORK = {
