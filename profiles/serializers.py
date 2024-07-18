@@ -23,7 +23,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             return following.id if following else None
         return None
 
-
     class Meta: 
         model = Profile
         fields = [
