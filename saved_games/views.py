@@ -41,7 +41,7 @@ class SavedGameList(generics.ListCreateAPIView):
         serializer.save(user=self.request.user)
         
         
-class SavedGameDetail(generics.RetrieveDestroyAPIView):
+class SavedGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SavedGameSerializer
     permission_classes = [IsUserOrReadOnly]
     

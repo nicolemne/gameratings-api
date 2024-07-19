@@ -10,15 +10,15 @@ class SavedGameSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        Validates that the game being saved is not already 
-        in the users saved games library.
+        Checks if the game is already saved in the user's library.
+        The validation is only applied when saving a new game.
         """
-        user = self.context['request'].user
-        if SavedGame.objects.filter(
-            user=user, game=data['game']
-            ).exists():
-            raise serializers.ValidationError(
-                'This game is already saved to your library'
+        request = self.context.get('request')
+        if request and request.method == 'POST':
+            user = request.user
+            if SavedGame.objects.filter(user=user, game=data['game']).exists():
+                raise serializers.ValidationError(
+                    'This game is already saved to your library'
                 )
         return data
     
