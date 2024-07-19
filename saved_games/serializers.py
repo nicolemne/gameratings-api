@@ -7,6 +7,10 @@ class SavedGameSerializer(serializers.ModelSerializer):
     """
     user = serializers.ReadOnlyField(source='user.username')
     game_title = serializers.ReadOnlyField(source='game.title')
+    game_developer = serializers.ReadOnlyField(source='game.game_developer')
+    game_platform = serializers.ReadOnlyField(source='game.platform.name')
+    game_genre = serializers.ReadOnlyField(source='game.genre.name')
+    game_multiplayer = serializers.ReadOnlyField(source='game.multiplayer')
 
     def validate(self, data):
         """
@@ -25,6 +29,7 @@ class SavedGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavedGame
         fields = [
-            'id', 'user', 'game', 'game_title', 
-            'created_at', 'status'
+            'id', 'user', 'game', 'game_title', 'created_at', 
+            'status', 'game_developer', 'game_platform', 
+            'game_genre', 'game_multiplayer',
         ]

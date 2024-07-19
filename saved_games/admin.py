@@ -4,7 +4,8 @@ from .models import SavedGame
 @admin.register(SavedGame)
 class SavedGameAdmin(admin.ModelAdmin):
     """
-    Customizes the SavedGame admin view to display, search, and filter saved games
+    Customizes the SavedGame admin view to display, search, 
+    and filter saved games
     """
     list_display = (
         'user', 'game', 'status', 'created_at'
