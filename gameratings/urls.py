@@ -27,4 +27,5 @@ urlpatterns = [
     path('', include('games.urls')),
     path('', include('platforms.urls')),
     path('', include('genres.urls')),
+    path('', include('saved_games.urls')),
 ]

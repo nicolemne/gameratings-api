@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, F
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from gameratings.permissions import IsOwnerOrReadOnly
@@ -33,3 +33,12 @@ class SavedGameList(generics.ListCreateAPIView):
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+        
+        
+class SavedGameDetail(generics.RetrieveDestroyAPIView):
+    serializer_class = SavedGameSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = SavedGame.objects.annotate(
+        average_star_rating=F('game__average_star_rating')
+    ).order_by('-created_at')
+    
