@@ -1,7 +1,7 @@
-from django.db.models import Count, F
+from django.db.models import F
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from gameratings.permissions import IsOwnerOrReadOnly
+from gameratings.permissions import IsUserOrReadOnly
 from .models import SavedGame
 from .serializers import SavedGameSerializer
 
@@ -13,7 +13,6 @@ class SavedGameList(generics.ListCreateAPIView):
     """
     serializer_class = SavedGameSerializer
     permission_classes = [permissions.IsAuthenticated]
-    queryset = SavedGame.objects.all().order_by('-created_at')
     filter_backends = [
         DjangoFilterBackend,
         filters.OrderingFilter,
@@ -31,14 +30,26 @@ class SavedGameList(generics.ListCreateAPIView):
         'average_star_rating',
     ]
     
+    def get_queryset(self):
+        """
+        This view returns a list of all the saved games
+        for the currently logged in user.
+        """
+        return SavedGame.objects.filter(user=self.request.user).order_by('-created_at')
+    
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
         
         
 class SavedGameDetail(generics.RetrieveDestroyAPIView):
     serializer_class = SavedGameSerializer
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = SavedGame.objects.annotate(
-        average_star_rating=F('game__average_star_rating')
-    ).order_by('-created_at')
+    permission_classes = [IsUserOrReadOnly]
     
+    def get_queryset(self):
+        """
+        This view should return the details of the saved game
+        for the currently authenticated user.
+        """
+        return SavedGame.objects.filter(user=self.request.user).annotate(
+            average_star_rating=F('game__average_star_rating')
+        ).order_by('-created_at')
