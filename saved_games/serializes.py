@@ -27,4 +27,4 @@ class SavedGameSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'user', 'game', 'game_title', 
             'created_at', 'status'
-            ]
+        ]
