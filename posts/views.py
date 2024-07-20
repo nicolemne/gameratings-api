@@ -31,6 +31,9 @@ class PostList(generics.ListCreateAPIView):
         'owner__username',
         'title',
         'game__title',
+        'game__platform__name',
+        'game__genre__name',
+        'game__multiplayer',
     ]
     ordering_fields = [
         'likes_count',
