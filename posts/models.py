@@ -32,7 +32,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_zes22w', blank=True
+        upload_to='images/', default='../default_post_xcacib', blank=True
     )
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
@@ -41,6 +41,11 @@ class Post(models.Model):
         default=0,
         validators=[MaxValueValidator(5)]
     )
+    
+    def save(self, *args, **kwargs):
+        if self.game and not self.game_image:
+            self.game_image = self.game.image
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created_at']

@@ -15,6 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     game_title = serializers.ReadOnlyField(source='game.title')
     game_platform = serializers.ReadOnlyField(source='game.platform.name')
+    game_image = serializers.ImageField(source='game.image', read_only=True)
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -50,5 +51,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image', 
             'created_at', 'updated_at', 'title', 'content', 'image',
             'image_filter', 'star_rating', 'like_id', 'likes_count', 
-            'comments_count', 'game_title', 'game_platform',
+            'comments_count', 'game_title', 'game_platform', 'game_image',
             ]
