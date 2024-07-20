@@ -12,7 +12,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_zes22w'
+        upload_to='images/', default='../gg_default_profile_jzmgfi'
     )
 
     class Meta:
