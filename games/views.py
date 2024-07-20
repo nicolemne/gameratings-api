@@ -21,7 +21,15 @@ class GameList(generics.ListCreateAPIView):
     )
     filter_backends = [
         DjangoFilterBackend,
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+    search_fields = [
+        'title',
+        'game_developer',
+        'genre__name',
+        'platform__name',
+        'multiplayer',
     ]
     filterset_fields = [
         'game_developer',

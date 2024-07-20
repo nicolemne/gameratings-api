@@ -5,11 +5,8 @@ from .models import Genre
 
 class GenreSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Platform model
+    Serializer for the Genre model
     """
-    # average_star_rating = serializers.ReadOnlyField()
-    # slug = serializers.ReadOnlyField()
-
     class Meta:
         model = Genre
         fields = [

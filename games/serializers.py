@@ -3,25 +3,8 @@ from django.db import IntegrityError
 from .models import Game
 from platforms.models import Platform
 from genres.models import Genre
-
-
-class PlatformSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the Platform model.
-    Display the platform name as well as ID.
-    """
-    class Meta:
-        model = Platform
-        fields = ['id', 'name']
-
-class GenreSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the Genre model.
-    Display the genre name as well as ID.
-    """
-    class Meta:
-        model = Genre
-        fields = ['id', 'name']
+from platforms.serializers import PlatformSerializer
+from genres.serializers import GenreSerializer
         
 
 class GameSerializer(serializers.ModelSerializer):
