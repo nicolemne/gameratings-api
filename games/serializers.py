@@ -19,12 +19,28 @@ class GameSerializer(serializers.ModelSerializer):
     unique_reviewers_count = serializers.ReadOnlyField()
     platform = PlatformSerializer(read_only=True)
     genre = GenreSerializer(read_only=True)
+    image = serializers.ImageField(required=False, allow_null=True)
+    
+    def validate_image(self, value):
+        if value.size > 1024 * 1024 * 2:
+            raise serializers.ValidationError(
+                'Image size is larger than 2 MB'
+            )
+        if value.image.width > 4096:
+            raise serializers.ValidationError(
+                'Image width larger than 4096 px'
+            ) 
+        if value.image.height > 4096:
+            raise serializers.ValidationError(
+                'Image height larger than 4096 px'
+            )
+        return value
 
     class Meta:
         model = Game
         fields = [
             'id', 'title', 'game_developer', 'genre', 'platform', 
-            'average_star_rating', 'slug', 'multiplayer',
+            'average_star_rating', 'slug', 'multiplayer', 'image',
             'posts_count', 'unique_reviewers_count',
         ]
 
@@ -37,7 +53,7 @@ class NewGameSerializer(serializers.ModelSerializer):
         model = Game
         fields = [
             'title', 'game_developer', 'genre', 'platform',
-            'multiplayer'
+            'multiplayer', 'image',
         ]
 
     def create(self, validated_data):
