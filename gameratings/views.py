@@ -5,5 +5,5 @@ from rest_framework.response import Response
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to the GOODGAME API!"
+        "message": "Welcome to GOODGAME API!"
     })
