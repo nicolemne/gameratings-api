@@ -40,14 +40,14 @@ ALLOWED_HOSTS = [
     'localhost', 
     'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/',
     '8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net',
-    'gameratings-api.herokuapp.com'
+    'gameratings-api-d04888e8239b.herokuapp.com'
     ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://localhost', 
     'https://nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net/',
     'https://8000-nicolemne-gameratingsap-snp7effbtaz.ws.codeinstitute-ide.net',
-    'https://gameratings-api.herokuapp.com',
+    'https://gameratings-api-d04888e8239b.herokuapp.com',
     ]
 
 
