@@ -8,6 +8,7 @@ class GenreList(generics.ListCreateAPIView):
     """
     List all genres when creating a post, only if authenticated.
     """
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
@@ -16,8 +17,8 @@ class GenreList(generics.ListCreateAPIView):
         filters.SearchFilter,
     ]
     search_fields = [
-        'name',
+        "name",
     ]
     ordering_fields = [
-        'name',
+        "name",
     ]

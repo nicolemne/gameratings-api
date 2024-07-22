@@ -8,6 +8,7 @@ class PlatformList(generics.ListCreateAPIView):
     """
     List all platforms when creating a post, only if authenticated.
     """
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = PlatformSerializer
     queryset = Platform.objects.all()
@@ -16,11 +17,11 @@ class PlatformList(generics.ListCreateAPIView):
         filters.SearchFilter,
     ]
     search_fields = [
-        'name',
-        'developer',
+        "name",
+        "developer",
     ]
     ordering_fields = [
-        'name',
-        'developer',
-        'release_date',
+        "name",
+        "developer",
+        "release_date",
     ]

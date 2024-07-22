@@ -183,9 +183,12 @@ No known bugs.
 ### Bug fix 1
 
 After updating the permissions to only allow superusers to handle game instance deletion, I ran into an error: `the 'Game' object has no attribute 'owner'`. 
-I thought that by removing `return obj.owner == request.user` in the custom permission "IsAdminOrOwnerOrReadOnly", it would solve the issue. Instead, I got a new error saying: `No such column: posts_post.game_id`.
 
 [Bug 1: AttributeError Game object](/assets/readme/games-no-owner.png)
+
+I thought that by removing `return obj.owner == request.user` in the custom permission "IsAdminOrOwnerOrReadOnly", it would solve the issue. Instead, I got a new error saying: `No such column: posts_post.game_id`.
+
+[Bug 1: OperationalError](/assets/readme/no-such-column.png)
 
 #### **Solution**: 
 I added `default=1` to the game field in the Post model so that the database knows what game to assign to existing posts during the migration process. This ensures that every post has a game assigned, even for posts that were created before the game field was added.
