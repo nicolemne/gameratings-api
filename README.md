@@ -185,7 +185,7 @@ No known bugs.
 After updating the permissions to only allow superusers to handle game instance deletion, I ran into an error: `the 'Game' object has no attribute 'owner'`. 
 I thought that by removing `return obj.owner == request.user` in the custom permission "IsAdminOrOwnerOrReadOnly", it would solve the issue. Instead, I got a new error saying: `No such column: posts_post.game_id`.
 
-[game-attribute-no-owner2-no-such-column](image-link)
+[Bug 1: AttributeError Game object](/assets/readme/games-no-owner.png)
 
 #### **Solution**: 
 I added `default=1` to the game field in the Post model so that the database knows what game to assign to existing posts during the migration process. This ensures that every post has a game assigned, even for posts that were created before the game field was added.
@@ -196,7 +196,7 @@ I added `default=1` to the game field in the Post model so that the database kno
 
 When I implemented the platform app and model, I had written the code to import the Game model from the games app with a variable with a Foreign Key assigned to it. The Game model was also referencing the Platform model, and since they were both importing each other I ran into a circular import loop, which I learned could be fixed by removing the model imports and adding a string in the variable, to only import when neccesary.
 
-[circular-import](image-link)
+[Bug 2: Circular import](/assets/readme/circular-import.png)
 
 #### **Solution**:
 Instead of using a direct import, I added a string reference in the ForeignKey: 
@@ -217,7 +217,7 @@ When I tried to view the details of a saved game, an error occurred: `AttributeE
 
 I learned this error happened because the custom permission class was checking for an owner attribute on the SavedGame model. However, the SavedGame model uses a user attribute to refer to the person who saved the game.
 
-[saved_games-object-has-no-owner](image-link)
+[Bug 3: AttributeError SavedGame object](/assets/readme/saved_games-object-has-no-owner.png)
 
 #### **Solution**:
 
