@@ -44,11 +44,6 @@ class Post(models.Model):
         default=0, validators=[MaxValueValidator(5)]
     )
 
-    def save(self, *args, **kwargs):
-        if self.game and not self.game_image:
-            self.game_image = self.game.image
-        super().save(*args, **kwargs)
-
     class Meta:
         ordering = ["-created_at"]
 
