@@ -318,6 +318,8 @@ I've used the PostgreSQL database provided by Code Institute. If you're a Code I
 - [django-filter Integration with DRF](https://django-filter.readthedocs.io/en/stable/guide/rest_framework.html)
 - [Django Widgets](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/)
 - [DateTimeField Django Forms](https://www.geeksforgeeks.org/datetimefield-django-forms/)
+- [Django Naive and aware datetime objects](https://docs.djangoproject.com/en/4.0/topics/i18n/timezones/#naive-and-aware-datetime-objects)
+- [Django make_aware](https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.timezone.make_aware)
 - [medium.com](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
 - [Coverage](https://micropyramid.com/blog/check-test-coverage-in-django-code-with-coveralls)
 - [Postman](https://www.postman.com/)
