@@ -55,7 +55,6 @@ add link to frontend website
 * [Credits](#credits)
   * [References and Resources](#references-and-resources)
   * [Content](#content)
-  * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
 # Project management
@@ -180,6 +179,8 @@ No known bugs.
 
 ## Fixed Bugs
 
+The documentation I have used to solve some of the bug fixes is listed in the References and Resources section. 
+
 ### Bug fix 1
 
 After updating the permissions to only allow superusers to handle game instance deletion, I ran into an error: `the 'Game' object has no attribute 'owner'`. 
@@ -226,6 +227,17 @@ I learned this error happened because the custom permission class was checking f
 
 This issue was resolved by writing a new permission class IsUserorReadOnly that checks if it's the same user that saved the game, that can edit or delete the saved game from their library. I imported my new permission IsUserorReadOnly and replaced IsOwnerOrReadOnly in the SavedGameDetail view.
 
+---
+
+### Bug fix 4
+
+While running tests for the PostListView, I encountered a runtime warning: DateTimeField Platform.release_date received a naive datetime while time zone support is active. I learned that this warning occurs because the datetime.now() function returns a naive datetime object, which does not include any timezone information. Django expects datetime objects to be timezone-aware to handle time-related data correctly.
+
+[Bug 4: RuntimeWarning: DateTimeField](/assets/readme/runtimewarning.png)
+
+#### **Solution**:
+
+To fix this issue, I used the make_aware function from django.utils.timezone. This function converts a naive datetime object to a timezone-aware datetime object, making it compatible with Django's timezone support.
 
 # Deployment & Local Development
 
@@ -308,24 +320,27 @@ I've used the PostgreSQL database provided by Code Institute. If you're a Code I
 ## References and Resources
 - [Heroku](https://heroku.com/)
 - [Cloudinary](https://cloudinary.com/)
-- [Django Project](https://www.djangoproject.com/)
-- [Django Signals](https://docs.djangoproject.com/en/5.0/topics/signals/)
-- [Django Aggregation](https://docs.djangoproject.com/en/5.0/topics/db/aggregation/)
-- [Django QuerySet](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#annotate)
-- [Django Validators](https://docs.djangoproject.com/en/5.0/ref/validators/)
-- [Django Query Expressions](https://docs.djangoproject.com/en/5.0/ref/models/expressions/#f-expressions)
+- [Django: Project](https://www.djangoproject.com/)
+- [Django: Signals](https://docs.djangoproject.com/en/5.0/topics/signals/)
+- [Django: Aggregation](https://docs.djangoproject.com/en/5.0/topics/db/aggregation/)
+- [Django: QuerySet](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#annotate)
+- [Django: Validators](https://docs.djangoproject.com/en/5.0/ref/validators/)
+- [Django: Query Expressions](https://docs.djangoproject.com/en/5.0/ref/models/expressions/#f-expressions)
 - [django-filter](https://django-filter.readthedocs.io/en/stable/)
 - [django-filter Integration with DRF](https://django-filter.readthedocs.io/en/stable/guide/rest_framework.html)
-- [Django Widgets](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/)
+- [Django: Widgets](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/)
 - [DateTimeField Django Forms](https://www.geeksforgeeks.org/datetimefield-django-forms/)
-- [Django Naive and aware datetime objects](https://docs.djangoproject.com/en/4.0/topics/i18n/timezones/#naive-and-aware-datetime-objects)
-- [Django make_aware](https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.timezone.make_aware)
-- [medium.com](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
+- [Django: Adding fields to existing models](https://docs.djangoproject.com/en/5.0/topics/migrations/#adding-fields-to-existing-models)
+- [Django: Custom Permissions](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#custom-permissions)
+- [Django: Naive and aware datetime objects](https://docs.djangoproject.com/en/4.0/topics/i18n/timezones/#naive-and-aware-datetime-objects)
+- [Django: make_aware](https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.timezone.make_aware)
+- [medium.com: Avoiding circular imports](https://medium.com/brexeng/avoiding-circular-imports-in-python-7c35ec8145ed)
+- [medium.com: Implementing star rating](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
 - [Coverage](https://micropyramid.com/blog/check-test-coverage-in-django-code-with-coveralls)
 - [Postman](https://www.postman.com/)
 
 ## Content
-I take great pride in stating that I have personally developed all the code in this project, demonstrating my dedication and commitment to its creation. While working on this project, I utilized various resources, including those acknowledged in the References and Resources, which provided valuable insights and inspiration. Additionally, I have incorporated some code from the Learning DRF-API and Moments walkthrough projects to enhance the functionality and quality of this project.
+I have personally developed all the code in this project, demonstrating my dedication and commitment to its creation. While working on this project, I utilized various resources, including those acknowledged in the References and Resources, which provided valuable insights and inspiration. Additionally, I have incorporated some code from the Learning DRF-API and Moments walkthrough projects to enhance the functionality and quality of this project.
 
 ## Acknowledgments
 I would like to thank and acknowledge the following people, who have shown invaluable support throughout my fifth project:
