@@ -10,6 +10,7 @@ class PlatformListViewTests(APITestCase):
     """
     Tests: Platform list view
     """
+
     def setUp(self):
         User.objects.create_user(username="nicole", password="blackcat")
         Platform.objects.create(
@@ -17,7 +18,7 @@ class PlatformListViewTests(APITestCase):
             developer="Test Developer",
             release_date=make_aware(datetime.now()),
         )
-        
+
     def test_can_list_platforms(self):
         response = self.client.get("/platforms/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
