@@ -10,6 +10,9 @@ from django.utils.timezone import make_aware
 
 
 class PostListViewTests(APITestCase):
+    """
+    Tests: Post list view
+    """
     def setUp(self):
         self.nicole = User.objects.create_user(username="nicole", password="blackcat")
         self.platform = Platform.objects.create(
@@ -40,6 +43,9 @@ class PostListViewTests(APITestCase):
 
 
 class PostDetailViewTests(APITestCase):
+    """
+    Tests: Post detail view
+    """
     def setUp(self):
         self.nicole = User.objects.create_user(username="nicole", password="blackcat")
         self.daniel = User.objects.create_user(

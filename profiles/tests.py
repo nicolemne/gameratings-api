@@ -27,15 +27,15 @@ class ProfileDetailViewTests(APITestCase):
     """
     Tests: Profile detail view
     """
-    
+
     def setUp(self):
         nicole = User.objects.create_user(username="nicole", password="blackcat")
         daniel = User.objects.create_user(username="daniel", password="purplegiraffe")
-        
+
     def test_no_retrieve_profile_with_invalid_id(self):
         response = self.client.get("/profiles/666/")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        
+
     def test_retrieve_profile_with_valid_id(self):
         response = self.client.get("/profiles/1/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
