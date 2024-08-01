@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
-from games.models import Game
 
 
 class Post(models.Model):
@@ -28,7 +27,7 @@ class Post(models.Model):
     ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(
-        Game, on_delete=models.CASCADE, related_name="posts", default=1
+        'games.Game', on_delete=models.CASCADE, related_name="posts", default=1
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
