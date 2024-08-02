@@ -12,7 +12,7 @@ class PlatformAdmin(admin.ModelAdmin):
     form = PlatformForm
     list_display = ("name", "developer", "release_date_display")
     search_fields = ("name", "developer", "release_date",)
-    list_filter = ("release_date",)
+    list_filter = ("name", "release_date", "developer",)
 
     def release_date_display(self, obj):
         return obj.release_date.year if obj.release_date else "N/A"
