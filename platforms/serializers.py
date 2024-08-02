@@ -10,8 +10,8 @@ class PlatformSerializer(serializers.ModelSerializer):
     
     release_date = serializers.SerializerMethodField()
     
-    def get_release_date_year(self, obj):
-        return obj.release_date.year
+    def get_release_date(self, obj):
+        return obj.release_date.year if obj.release_date else "N/A"
     
 
     class Meta:

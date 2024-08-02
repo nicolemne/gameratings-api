@@ -33,7 +33,7 @@ class GameSerializer(serializers.ModelSerializer):
         return value
     
     def get_release_year(self, obj):
-        return obj.release_year.year
+        return obj.release_year.year if obj.release_year else "N/A"
 
     class Meta:
         model = Game
