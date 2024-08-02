@@ -5,8 +5,9 @@
 
 """
 introduction
-add prt sc img of API 
 """
+
+![API welcome message](assets/readme/api-welcome-message.png)
 
 View API:
 [GOODGAME Ratings API](https://gameratings-api-d04888e8239b.herokuapp.com/)
@@ -146,6 +147,14 @@ See [requirements.txt](requirements.txt)
 
 ## Automated tests
 
+Automated testing has been done in the following apps; *profiles*, *posts*, *platforms*, *genres*, *games* and *saved_games*. 
+
+The tests consists of both ListViewTests and DetailViewTests that check listing and retrieving with valid & invalid IDs, which ensure functionality of listing and retrieving data in the application works as expected.
+
+The pagination error is something I will look into at a later point in time.
+
+![Automated tests](assets/readme/automated_tests.png)
+
 """
 include postman report
 """
@@ -167,9 +176,14 @@ include python linter screenshot
 
 ## Coverage Report
 
-"""
-include coverage report
-"""
+Coverage is a tool that can be installed in the terminal to measure how much of the code is executed during tests.
+I have generated a Coverage report following these steps in the terminal:
+
+1. `pip install coverage`
+2. `coverage run --source='.' manage.py test`
+3. `coverage report` to see summary
+
+View Coverage report here: [page 1](/assets/readme/coverage1.png) and [page 2.](/assets/readme/coverage2.png)
 
 # Bugs
 
@@ -336,6 +350,7 @@ I've used the PostgreSQL database provided by Code Institute. If you're a Code I
 - [Django: make_aware](https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.timezone.make_aware)
 - [medium.com: Avoiding circular imports](https://medium.com/brexeng/avoiding-circular-imports-in-python-7c35ec8145ed)
 - [medium.com: Implementing star rating](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
+- [Whitenoise](https://whitenoise.readthedocs.io/en/latest/)
 - [Coverage](https://micropyramid.com/blog/check-test-coverage-in-django-code-with-coveralls)
 - [Postman](https://www.postman.com/)
 
