@@ -18,8 +18,6 @@ class PostSerializer(serializers.ModelSerializer):
     game_title = serializers.ReadOnlyField(source="game.title")
     game_platform = serializers.ReadOnlyField(source="game.platform.name")
     game_image = serializers.ImageField(source="game.image", read_only=True)
-    created_at = serializers.DateTimeField(format='%d %b %Y')
-    updated_at = serializers.DateTimeField(format='%d %b %Y')
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
