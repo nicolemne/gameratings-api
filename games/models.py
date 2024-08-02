@@ -20,8 +20,8 @@ class Game(models.Model):
     )
     average_star_rating = models.FloatField(default=0.0)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    multiplayer = models.BooleanField(default=False)
     release_year = models.DateField(default=now)
+    multiplayer = models.BooleanField(default=False)
     image = models.ImageField(
         upload_to="images/", default="../gg_default_new_game_hiawpf", blank=True
     )

@@ -2,6 +2,7 @@ from django.contrib import admin
 from games.models import Game
 from genres.models import Genre
 from platforms.models import Platform
+from .forms import GameForm
 
 
 @admin.register(Game)
@@ -11,6 +12,7 @@ class GameAdmin(admin.ModelAdmin):
     Uses autocomplete for Platform and Genre.
     """
 
+    form = GameForm
     list_display = (
         "title",
         "game_developer",
@@ -19,7 +21,7 @@ class GameAdmin(admin.ModelAdmin):
         "average_star_rating",
         "slug",
         "multiplayer",
-        "release_year",
+        "release_year_display",
     )
     search_fields = (
         "title",
@@ -31,3 +33,6 @@ class GameAdmin(admin.ModelAdmin):
     list_filter = ("platform", "genre", "multiplayer")
     autocomplete_fields = ["platform", "genre"]
     exclude = ("average_star_rating", "slug")
+
+    def release_year_display(self, obj):
+        return obj.release_year.year if obj.release_year else "N/A"

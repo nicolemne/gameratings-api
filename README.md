@@ -332,8 +332,7 @@ I've used the PostgreSQL database provided by Code Institute. If you're a Code I
 # Credits
 
 ## References and Resources
-- [Heroku](https://heroku.com/)
-- [Cloudinary](https://cloudinary.com/)
+#### Django
 - [Django: Project](https://www.djangoproject.com/)
 - [Django: Signals](https://docs.djangoproject.com/en/5.0/topics/signals/)
 - [Django: Aggregation](https://docs.djangoproject.com/en/5.0/topics/db/aggregation/)
@@ -348,6 +347,12 @@ I've used the PostgreSQL database provided by Code Institute. If you're a Code I
 - [Django: Custom Permissions](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#custom-permissions)
 - [Django: Naive and aware datetime objects](https://docs.djangoproject.com/en/4.0/topics/i18n/timezones/#naive-and-aware-datetime-objects)
 - [Django: make_aware](https://docs.djangoproject.com/en/4.0/ref/utils/#django.utils.timezone.make_aware)
+- [Django admin site](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/)
+- [Django ModelAdmin list_display](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display)
+
+#### Other
+- [Heroku](https://heroku.com/)
+- [Cloudinary](https://cloudinary.com/)
 - [medium.com: Avoiding circular imports](https://medium.com/brexeng/avoiding-circular-imports-in-python-7c35ec8145ed)
 - [medium.com: Implementing star rating](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
 - [Whitenoise](https://whitenoise.readthedocs.io/en/latest/)
