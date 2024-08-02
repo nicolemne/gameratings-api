@@ -21,6 +21,7 @@ class GameSerializer(serializers.ModelSerializer):
     platform = PlatformSerializer(read_only=True)
     genre = GenreSerializer(read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
+    release_year = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -30,6 +31,9 @@ class GameSerializer(serializers.ModelSerializer):
         if value.image.height > 4096:
             raise serializers.ValidationError("Image height larger than 4096 px")
         return value
+    
+    def get_release_year(self, obj):
+        return obj.release_year.year
 
     class Meta:
         model = Game
@@ -45,6 +49,7 @@ class GameSerializer(serializers.ModelSerializer):
             "image",
             "posts_count",
             "unique_reviewers_count",
+            "release_year",
         ]
 
 
@@ -62,6 +67,7 @@ class NewGameSerializer(serializers.ModelSerializer):
             "platform",
             "multiplayer",
             "image",
+            "release_year",
         ]
 
     def create(self, validated_data):

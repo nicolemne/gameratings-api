@@ -19,8 +19,15 @@ class GameAdmin(admin.ModelAdmin):
         "average_star_rating",
         "slug",
         "multiplayer",
+        "release_year",
     )
-    search_fields = ("title", "game_developer", "platform__name", "genre__name")
+    search_fields = (
+        "title",
+        "game_developer",
+        "platform__name",
+        "genre__name",
+        "release_year",
+    )
     list_filter = ("platform", "genre", "multiplayer")
     autocomplete_fields = ["platform", "genre"]
     exclude = ("average_star_rating", "slug")

@@ -31,8 +31,15 @@ class GameList(generics.ListCreateAPIView):
         "genre__name",
         "platform__name",
         "multiplayer",
+        "release_year",
     ]
-    filterset_fields = ["game_developer", "genre", "platform", "multiplayer"]
+    filterset_fields = [
+        "game_developer",
+        "genre",
+        "platform",
+        "multiplayer",
+        "release_year",
+    ]
     ordering_fields = [
         "posts_count",
         "unique_reviewers_count",
@@ -40,6 +47,7 @@ class GameList(generics.ListCreateAPIView):
         "game_developer",
         "genre",
         "platform",
+        "release_year",
     ]
 
 
