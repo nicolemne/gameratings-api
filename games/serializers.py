@@ -27,11 +27,15 @@ class GameSerializer(serializers.ModelSerializer):
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError("Image size is larger than 2 MB")
         if value.image.width > 4096:
-            raise serializers.ValidationError("Image width larger than 4096 px")
+            raise serializers.ValidationError(
+                "Image width larger than 4096 px"
+            )
         if value.image.height > 4096:
-            raise serializers.ValidationError("Image height larger than 4096 px")
+            raise serializers.ValidationError(
+                "Image height larger than 4096 px"
+            )
         return value
-    
+
     def get_release_year(self, obj):
         return obj.release_year.year if obj.release_year else "N/A"
 
@@ -80,5 +84,7 @@ class NewGameSerializer(serializers.ModelSerializer):
 
     def validate_title(self, value):
         if len(value) > 255:
-            raise serializers.ValidationError("Title length exceeds 255 characters")
+            raise serializers.ValidationError(
+                "Title length exceeds 255 characters"
+            )
         return value

@@ -14,12 +14,16 @@ class SavedGame(models.Model):
         ("completed", "Completed"),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="saved_games")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="saved_games"
+    )
     game = models.ForeignKey(
         Game, on_delete=models.CASCADE, related_name="saved_by_users"
     )
     created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="wishlist")
+    status = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default="wishlist"
+    )
 
     class Meta:
         unique_together = ("user", "game")

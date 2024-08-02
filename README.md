@@ -188,11 +188,29 @@ I have used Postman to generate a few tests to check some key functionality to m
 
 
 ## PEP8 Python Linter
-[Code Institute Python linter](https://pep8ci.herokuapp.com/#) 
+I have used [Code Institute Python Linter](https://pep8ci.herokuapp.com/#) to test all of my code to ensure it follows the PEP8 standards. 
 
-"""
-include python linter screenshot
-"""
+This process has helped me to:
+
+- Clean and beautify my code
+- Remove unnecessary comments
+- Follow consistent naming conventions
+- Ensure a good overall code quality and readability
+
+### Overview
+
+| **Component**  | **Model** | **Serializer** | **Views** | **URLs** | **Forms** | **Signals** |
+|----------------|-----------|----------------|-----------|----------|-----------|-------------|
+| **Comments**   | [Model](assets/readme/pylint_comment_model.png) | [Serializer](assets/readme/pylint_comment_serializer.png) | [Views](assets/readme/pylint_comment_views.png) | [URLs](assets/readme/pylint_comment_urls.png) |           |             |
+| **Followers**  | [Model](assets/readme/pylint_followers_model.png) | [Serializer](assets/readme/pylint_followers_serializer.png) | [Views](assets/readme/pylint_followers_views.png) | [URLs](assets/readme/pylint_followers_urls.png) |           |             |
+| **Games**      | [Model](assets/readme/pylint_games_model.png) | [Serializer](assets/readme/pylint_games_serializer.png) | [Views](assets/readme/pylint_games_views.png) | [URLs](assets/readme/pylint_games_urls.png) | [Forms](assets/readme/pylint_games_forms.png) |             |
+| **Genres**     | [Model](assets/readme/pylint_genres_model.png) | [Serializer](assets/readme/pylint_genres_serializer.png) | [Views](assets/readme/pylint_genres_views.png) | [URLs](assets/readme/pylint_genres_urls.png) |           |             |
+| **Likes**      | [Model](assets/readme/pylint_likes_model.png) | [Serializer](assets/readme/pylint_likes_serializer.png) | [Views](assets/readme/pylint_likes_views.png) | [URLs](assets/readme/pylint_likes_urls.png) |           |             |
+| **Platforms**  | [Model](assets/readme/pylint_platforms_model.png) | [Serializer](assets/readme/pylint_platforms_serializer.png) | [Views](assets/readme/pylint_platforms_views.png) | [URLs](assets/readme/pylint_platforms_urls.png) | [Forms](assets/readme/pylint_platforms_forms.png) |             |
+| **Posts**      | [Model](assets/readme/pylint_posts_model.png) | [Serializer](assets/readme/pylint_posts_serializer.png) | [Views](assets/readme/pylint_posts_views.png) | [URLs](assets/readme/pylint_posts_urls.png) | [Forms](assets/readme/pylint_posts_forms.png) | [Signals](assets/readme/pylint_posts_signals.png) |
+| **Profiles**   | [Model](assets/readme/pylint_profiles_model.png) | [Serializer](assets/readme/pylint_profiles_serializer.png) | [Views](assets/readme/pylint_profiles_views.png) | [URLs](assets/readme/pylint_profiles_urls.png) |           |             |
+| **Saved Games**| [Model](assets/readme/pylint_savedgames_model.png) | [Serializer](assets/readme/pylint_savedgames_serializer.png) | [Views](assets/readme/pylint_savedgames_views.png) | [URLs](assets/readme/pylint_savedgames_urls.png) |           |             |
+
 
 # Bugs
 

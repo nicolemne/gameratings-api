@@ -36,7 +36,8 @@ class SavedGameList(generics.ListCreateAPIView):
         This view returns a list of all the saved games
         for the currently logged in user.
         """
-        return SavedGame.objects.filter(user=self.request.user).order_by("-created_at")
+        return SavedGame.objects.filter(
+            user=self.request.user).order_by("-created_at")
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

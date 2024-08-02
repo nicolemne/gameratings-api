@@ -23,7 +23,9 @@ class Game(models.Model):
     release_year = models.DateField(default=now)
     multiplayer = models.BooleanField(default=False)
     image = models.ImageField(
-        upload_to="images/", default="../gg_default_new_game_hiawpf", blank=True
+        upload_to="images/",
+        default="../gg_default_new_game_hiawpf",
+        blank=True,
     )
 
     class Meta:

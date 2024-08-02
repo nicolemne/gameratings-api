@@ -3,7 +3,7 @@ from .models import Post
 from django.core.validators import MaxValueValidator
 
 
-class PostAdminForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
     """
     Custom form for the Post model to only allow a maximum of 5 rating.
     """
