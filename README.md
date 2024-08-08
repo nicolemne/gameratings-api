@@ -12,11 +12,11 @@ introduction
 View API:
 [GG Ratings API](https://gameratings-api-d04888e8239b.herokuapp.com/)
 
-View Frontend Site:
+View Frontend Live Site:
 [GG Ratings](https://gameratings-frontend-2c9d8978da10.herokuapp.com/)
 
-API Repository:
-[API Repository](https://github.com/nicolemne/gameratings-api)
+Frontend Repository:
+[Frontend Repository](https://github.com/nicolemne/gameratings-frontend)
 
 ## **CONTENTS**
 * [Project management](#project-management)
@@ -25,7 +25,7 @@ API Repository:
   * [Entity relationship diagram](#entity-relationship-diagram)
   * [Future Implementations](#future-implementations)
 
-*  [Features of the GG Ratings API](#features-of-the-goodgame-api)
+*  [Features of the GG Ratings API](#features-of-the-gg-ratings-api)
    * [Admin Access](#admin-access)
    * [User Access](#user-access)
 
@@ -74,7 +74,7 @@ Key functionalities include:
 
 ## Agile Methodology
 
-The GOODGAME API project is managed using Agile methodology. The following tools and practices are used to ensure efficient project management:
+The GG Ratings API project is managed using Agile methodology. The following tools and practices are used to ensure efficient project management:
 
 - [Project Kanban Board](https://https://github.com/users/nicolemne/projects/9): The Kanban board helps us see the project's progress. It shows tasks in different stages like "To Do," "In Progress," and "Done," making it easy to track work and spot any issues.
 - [Milestones](https://github.com/nicolemne/gameratings-api/milestones): Milestones are major goals and deadlines for the project. Each milestone represents a big step or deliverable that needs to be finished by a certain date. This helps plan and track the progress towards the project's main goals.
@@ -103,8 +103,8 @@ The GOODGAME API project is managed using Agile methodology. The following tools
 include future implementations
 """
 
-# Features of the GOODGAME API
-The GOODGAME API consists of multiple apps, each with its unique model, views, URLs, and serializers. This structure provides a well-organized and scalable approach to managing the various aspects of the API.
+# Features of the GG Ratings API
+The GG Ratings API consists of multiple apps, each with its unique model, views, URLs, and serializers. This structure provides a well-organized and scalable approach to managing the various aspects of the API.
 
 ## Admin Access
 A superuser can log in through the Django admin site to manage the backend and administer the User model. This allows for efficient administration and control over user data and permissions. Additionally, only a superuser can add or delete new instances of the Platform and Genre models, however, all users can select a platform and genre when creating a new game instance. 
