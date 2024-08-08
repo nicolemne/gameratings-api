@@ -1,7 +1,7 @@
 
-# GOODGAME Ratings API
+# GG Ratings API
 
-### **Welcome to GOODGAME Ratings API README.**
+### **Welcome to GG Ratings API README.**
 
 """
 introduction
@@ -10,11 +10,13 @@ introduction
 ![API welcome message](assets/readme/api-welcome-message.png)
 
 View API:
-[GOODGAME Ratings API](https://gameratings-api-d04888e8239b.herokuapp.com/)
+[GG Ratings API](https://gameratings-api-d04888e8239b.herokuapp.com/)
 
-"""
-add link to frontend website
-"""
+View Frontend Site:
+[GG Ratings](https://gameratings-frontend-2c9d8978da10.herokuapp.com/)
+
+API Repository:
+[API Repository](https://github.com/nicolemne/gameratings-api)
 
 ## **CONTENTS**
 * [Project management](#project-management)
@@ -23,7 +25,7 @@ add link to frontend website
   * [Entity relationship diagram](#entity-relationship-diagram)
   * [Future Implementations](#future-implementations)
 
-*  [Features of the GOODGAME API](#features-of-the-goodgame-api)
+*  [Features of the GG Ratings API](#features-of-the-goodgame-api)
    * [Admin Access](#admin-access)
    * [User Access](#user-access)
 

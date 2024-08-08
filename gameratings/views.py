@@ -10,7 +10,7 @@ from .settings import (
 
 @api_view()
 def root_route(request):
-    return Response({"message": "Welcome to GOODGAME Ratings API!"})
+    return Response({"message": "Welcome to GG Ratings API!"})
 
 
 # dj-rest-auth logout view fix
