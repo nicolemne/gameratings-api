@@ -137,7 +137,7 @@ JWT_AUTH_REFRESH_COOKIE = "my-refresh-token"
 JWT_AUTH_SAMESITE = "None"
 
 REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "gameratings_api.serializers.CurrentUserSerializer"
+    "USER_DETAILS_SERIALIZER": "gameratings.serializers.CurrentUserSerializer"
 }
 
 ROOT_URLCONF = "gameratings.urls"
