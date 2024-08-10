@@ -106,7 +106,6 @@ if "CLIENT_ORIGIN_DEV" in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.codeinstitute-ide\.net$",
     ]
-    print("CORS_ALLOWED_ORIGIN_REGEXES:", CORS_ALLOWED_ORIGIN_REGEXES)
 
 CORS_ALLOW_CREDENTIALS = True
 
