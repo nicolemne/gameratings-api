@@ -4,9 +4,9 @@ cloudinary==1.40.0
 coverage==7.6.0
 cryptography==43.0.0
 dj-database-url==0.5.0
-dj-rest-auth==6.0.0
-Django==5.0.7
-django-allauth==0.63.6
+dj-rest-auth==2.1.9
+Django==4.2
+django-allauth==0.54.0
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.4.0
 django-filter==24.2
