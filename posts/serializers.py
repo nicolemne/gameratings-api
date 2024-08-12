@@ -15,6 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    star_rating = serializers.IntegerField()
 
     game_id = serializers.IntegerField()
     game_title = serializers.ReadOnlyField(source="game.title")
@@ -24,7 +25,7 @@ class PostSerializer(serializers.ModelSerializer):
     game_release_year = serializers.ReadOnlyField(source="game.release_year")
     game_genre = serializers.ReadOnlyField(source="game.genre.name")
     game_multiplayer = serializers.ReadOnlyField(source="game.multiplayer")
-    star_rating = serializers.IntegerField()
+    game_average_star_rating = serializers.ReadOnlyField(source="game.average_star_rating")
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -72,4 +73,5 @@ class PostSerializer(serializers.ModelSerializer):
             "game_release_year",
             "game_genre",
             "game_multiplayer",
+            "game_average_star_rating",
         ]
