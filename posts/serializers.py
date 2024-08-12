@@ -15,22 +15,24 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+
     game_id = serializers.IntegerField(write_only=True)
     game_title = serializers.ReadOnlyField(source="game.title")
     game_platform = serializers.ReadOnlyField(source="game.platform.name")
     game_image = serializers.ImageField(source="game.image", read_only=True)
+    game_developer = serializers.ReadOnlyField(source="game.game_developer")
+    game_release_year = serializers.ReadOnlyField(source="game.release_year")
+    game_genre = serializers.ReadOnlyField(source="game.genre.name")
+    game_multiplayer = serializers.ReadOnlyField(source="game.multiplayer")
+    star_rating = serializers.IntegerField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError("Image size is larger than 2 MB")
         if value.image.width > 4096:
-            raise serializers.ValidationError(
-                "Image width larger than 4096 px"
-            )
+            raise serializers.ValidationError("Image width larger than 4096 px")
         if value.image.height > 4096:
-            raise serializers.ValidationError(
-                "Image height larger than 4096 px"
-            )
+            raise serializers.ValidationError("Image height larger than 4096 px")
         return value
 
     def get_is_owner(self, obj):
@@ -66,4 +68,8 @@ class PostSerializer(serializers.ModelSerializer):
             "game_title",
             "game_platform",
             "game_image",
+            "game_developer",
+            "game_release_year",
+            "game_genre",
+            "game_multiplayer",
         ]
