@@ -16,7 +16,7 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
-    game_id = serializers.IntegerField(write_only=True)
+    game_id = serializers.IntegerField()
     game_title = serializers.ReadOnlyField(source="game.title")
     game_platform = serializers.ReadOnlyField(source="game.platform.name")
     game_image = serializers.ImageField(source="game.image", read_only=True)
