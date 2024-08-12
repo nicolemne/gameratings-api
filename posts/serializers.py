@@ -61,6 +61,7 @@ class PostSerializer(serializers.ModelSerializer):
             "like_id",
             "likes_count",
             "comments_count",
+            "game_id",
             "game_title",
             "game_platform",
             "game_image",
