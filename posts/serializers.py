@@ -25,7 +25,9 @@ class PostSerializer(serializers.ModelSerializer):
     game_release_year = serializers.ReadOnlyField(source="game.release_year")
     game_genre = serializers.ReadOnlyField(source="game.genre.name")
     game_multiplayer = serializers.ReadOnlyField(source="game.multiplayer")
-    game_average_star_rating = serializers.ReadOnlyField(source="game.average_star_rating")
+    game_average_star_rating = serializers.ReadOnlyField(
+        source="game.average_star_rating"
+    )
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -46,6 +48,9 @@ class PostSerializer(serializers.ModelSerializer):
             like = Like.objects.filter(owner=user, post=obj).first()
             return like.id if like else None
         return None
+
+    def get_game_release_year(self, obj):
+        return obj.game.release_year.year if obj.game.release_year else "N/A"
 
     class Meta:
         model = Post
