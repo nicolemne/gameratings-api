@@ -15,7 +15,6 @@ class GameSerializer(serializers.ModelSerializer):
     """
 
     average_star_rating = serializers.SerializerMethodField()
-    slug = serializers.ReadOnlyField()
     posts_count = serializers.ReadOnlyField()
     unique_reviewers_count = serializers.ReadOnlyField()
     platform = PlatformSerializer(read_only=True)
@@ -24,6 +23,9 @@ class GameSerializer(serializers.ModelSerializer):
     release_year = serializers.SerializerMethodField()
 
     def validate_image(self, value):
+        if value is None:
+            return value
+
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError("Image size is larger than 2 MB")
         if value.image.width > 4096:
@@ -47,7 +49,6 @@ class GameSerializer(serializers.ModelSerializer):
             "genre",
             "platform",
             "average_star_rating",
-            "slug",
             "multiplayer",
             "image",
             "posts_count",

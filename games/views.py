@@ -63,4 +63,4 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
         posts_count=Count("posts", distinct=True),
         unique_reviewers_count=Count("posts__owner", distinct=True),
     )
-    lookup_field = "slug"
+    lookup_field = "pk"

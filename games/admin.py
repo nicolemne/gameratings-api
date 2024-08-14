@@ -19,7 +19,6 @@ class GameAdmin(admin.ModelAdmin):
         "platform",
         "genre",
         "average_star_rating",
-        "slug",
         "multiplayer",
         "release_year_display",
     )
@@ -32,7 +31,7 @@ class GameAdmin(admin.ModelAdmin):
     )
     list_filter = ("platform", "genre", "multiplayer")
     autocomplete_fields = ["platform", "genre"]
-    exclude = ("average_star_rating", "slug")
+    exclude = ("average_star_rating",)
 
     def release_year_display(self, obj):
         return obj.release_year.year if obj.release_year else "N/A"

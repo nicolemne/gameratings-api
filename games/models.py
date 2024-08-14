@@ -19,7 +19,6 @@ class Game(models.Model):
         "genres.Genre", on_delete=models.CASCADE, related_name="games"
     )
     average_star_rating = models.FloatField(default=0.0)
-    slug = models.SlugField(max_length=255, unique=True, blank=True)
     release_year = models.DateField(default=now)
     multiplayer = models.BooleanField(default=False)
     image = models.ImageField(
@@ -30,11 +29,6 @@ class Game(models.Model):
 
     class Meta:
         unique_together = ("title", "genre", "platform")
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(f"{self.title} {self.platform.name}")
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.title} ({self.platform.name})"
