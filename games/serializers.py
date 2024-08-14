@@ -9,9 +9,8 @@ from genres.serializers import GenreSerializer
 
 class GameSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Game model
-    The create method handles the unique constraint on
-    'title', 'game_developer', 'genre', and 'platform'
+    Combined Serializer for the Game model.
+    Handles both creation and listing of games.
     """
 
     average_star_rating = serializers.SerializerMethodField()
@@ -21,6 +20,13 @@ class GameSerializer(serializers.ModelSerializer):
     genre = GenreSerializer(read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
     release_year = serializers.SerializerMethodField()
+
+    platform_id = serializers.PrimaryKeyRelatedField(
+        queryset=Platform.objects.all(), write_only=True, source="platform"
+    )
+    genre_id = serializers.PrimaryKeyRelatedField(
+        queryset=Genre.objects.all(), write_only=True, source="genre"
+    )
 
     def validate_image(self, value):
         if value is None:
@@ -40,40 +46,6 @@ class GameSerializer(serializers.ModelSerializer):
     def get_average_star_rating(self, obj):
         return round(obj.average_star_rating, 1)
 
-    class Meta:
-        model = Game
-        fields = [
-            "id",
-            "title",
-            "game_developer",
-            "genre",
-            "platform",
-            "average_star_rating",
-            "multiplayer",
-            "image",
-            "posts_count",
-            "unique_reviewers_count",
-            "release_year",
-        ]
-
-
-class NewGameSerializer(serializers.ModelSerializer):
-    """
-    Serializer for creating a new game.
-    """
-
-    class Meta:
-        model = Game
-        fields = [
-            "title",
-            "game_developer",
-            "genre",
-            "platform",
-            "multiplayer",
-            "image",
-            "release_year",
-        ]
-
     def create(self, validated_data):
         try:
             return super().create(validated_data)
@@ -86,3 +58,21 @@ class NewGameSerializer(serializers.ModelSerializer):
         if len(value) > 255:
             raise serializers.ValidationError("Title length exceeds 255 characters")
         return value
+
+    class Meta:
+        model = Game
+        fields = [
+            "id",
+            "title",
+            "game_developer",
+            "genre",
+            "platform",
+            "platform_id",
+            "genre_id",
+            "average_star_rating",
+            "multiplayer",
+            "image",
+            "posts_count",
+            "unique_reviewers_count",
+            "release_year",
+        ]
