@@ -16,6 +16,8 @@ class GameList(generics.ListCreateAPIView):
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = GameSerializer
+    pagination_class = None
+    
     queryset = Game.objects.annotate(
         posts_count=Count("posts", distinct=True),
         unique_reviewers_count=Count("posts__owner", distinct=True),
