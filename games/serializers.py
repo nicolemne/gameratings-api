@@ -19,7 +19,6 @@ class GameSerializer(serializers.ModelSerializer):
     platform = PlatformSerializer(read_only=True)
     genre = GenreSerializer(read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
-    release_year = serializers.SerializerMethodField()
 
     platform_id = serializers.PrimaryKeyRelatedField(
         queryset=Platform.objects.all(), write_only=True, source="platform"
@@ -39,9 +38,6 @@ class GameSerializer(serializers.ModelSerializer):
         if value.image.height > 4096:
             raise serializers.ValidationError("Image height larger than 4096 px")
         return value
-
-    def get_release_year(self, obj):
-        return obj.release_year.year if obj.release_year else "N/A"
 
     def get_average_star_rating(self, obj):
         return round(obj.average_star_rating, 1)

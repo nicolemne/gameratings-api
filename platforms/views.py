@@ -11,7 +11,10 @@ class PlatformList(generics.ListCreateAPIView):
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = PlatformSerializer
+    pagination_class = None
+    
     queryset = Platform.objects.all()
+    
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,

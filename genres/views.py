@@ -11,7 +11,10 @@ class GenreList(generics.ListCreateAPIView):
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = GenreSerializer
+    pagination_class = None
+    
     queryset = Genre.objects.all()
+    
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
