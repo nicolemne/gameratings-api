@@ -45,7 +45,7 @@ class SavedGameList(generics.ListCreateAPIView):
 
 class SavedGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SavedGameSerializer
-    permission_classes = [permissions.IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
 
     def get_queryset(self):
         """
