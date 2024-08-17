@@ -9,6 +9,6 @@ class SavedGameAdmin(admin.ModelAdmin):
     and filter saved games
     """
 
-    list_display = ("user", "game", "status", "created_at")
-    search_fields = ("user__username", "game__title", "status")
-    list_filter = ("status", "created_at", "user", "game")
+    list_display = ("owner", "game", "status", "created_at")
+    search_fields = ("owner__username", "game__title", "status")
+    list_filter = ("status", "created_at", "owner", "game")

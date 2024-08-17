@@ -7,7 +7,7 @@ class SavedGameSerializer(serializers.ModelSerializer):
     Serializer for the SavedGame model
     """
 
-    user = serializers.ReadOnlyField(source="user.username")
+    owner = serializers.ReadOnlyField(source="owner.username")
 
     game_id = serializers.IntegerField()
     game_title = serializers.ReadOnlyField(source="game.title")
@@ -26,8 +26,8 @@ class SavedGameSerializer(serializers.ModelSerializer):
         """
         request = self.context.get("request")
         if request and request.method == "POST":
-            user = request.user
-            if SavedGame.objects.filter(user=user, game=data["game"]).exists():
+            owner = request.user
+            if SavedGame.objects.filter(owner=owner, game=data["game"]).exists():
                 raise serializers.ValidationError(
                     "This game is already saved to your library"
                 )
@@ -45,7 +45,7 @@ class SavedGameSerializer(serializers.ModelSerializer):
         model = SavedGame
         fields = [
             "id",
-            "user",
+            "owner",
             "created_at",
             "status",
             "game_id",

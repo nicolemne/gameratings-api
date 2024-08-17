@@ -47,10 +47,10 @@ class SavedGameList(generics.ListCreateAPIView):
         This view returns a list of all the saved games
         for the currently logged in user.
         """
-        return SavedGame.objects.filter(user=self.request.user).order_by("-created_at")
+        return SavedGame.objects.filter(owner=self.request.user).order_by("-created_at")
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(owner=self.request.user)
 
 
 class SavedGameDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -62,4 +62,4 @@ class SavedGameDetail(generics.RetrieveUpdateDestroyAPIView):
         This view should return the details of the saved game
         for the currently authenticated user.
         """
-        return SavedGame.objects.filter(user=self.request.user).order_by("-created_at")
+        return SavedGame.objects.filter(owner=self.request.user).order_by("-created_at")
