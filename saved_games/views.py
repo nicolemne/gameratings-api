@@ -2,6 +2,7 @@ from django.db.models import F
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from gameratings.permissions import IsOwnerOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from .models import SavedGame
 from .serializers import SavedGameSerializer
 
@@ -13,7 +14,7 @@ class SavedGameList(generics.ListCreateAPIView):
     """
 
     serializer_class = SavedGameSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = SavedGame.objects.all()
 
     filter_backends = [
