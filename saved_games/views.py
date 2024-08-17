@@ -17,6 +17,7 @@ class SavedGameList(generics.ListCreateAPIView):
     filter_backends = [
         DjangoFilterBackend,
         filters.OrderingFilter,
+        filters.SearchFilter,
     ]
     filterset_fields = [
         "game__title",
@@ -29,6 +30,14 @@ class SavedGameList(generics.ListCreateAPIView):
     ordering_fields = [
         "created_at",
         "average_star_rating",
+    ]
+    search_fields = [
+        "status",
+        "game__title",
+        "game__developer",
+        "genre__name",
+        "platform__name",
+        "game__release_year",
     ]
 
     def get_queryset(self):
