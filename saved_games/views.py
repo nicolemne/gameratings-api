@@ -13,7 +13,9 @@ class SavedGameList(generics.ListCreateAPIView):
     """
 
     serializer_class = SavedGameSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = SavedGame.objects.all()
+
     filter_backends = [
         DjangoFilterBackend,
         filters.OrderingFilter,
@@ -34,9 +36,9 @@ class SavedGameList(generics.ListCreateAPIView):
     search_fields = [
         "status",
         "game__title",
-        "game__developer",
-        "genre__name",
-        "platform__name",
+        "game__game_developer",
+        "game__genre__name",
+        "game__platform__name",
         "game__release_year",
     ]
 
