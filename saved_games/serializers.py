@@ -27,7 +27,7 @@ class SavedGameSerializer(serializers.ModelSerializer):
         request = self.context.get("request")
         if request and request.method == "POST":
             owner = request.user
-            if SavedGame.objects.filter(owner=owner, game=data["game"]).exists():
+            if SavedGame.objects.filter(owner=owner, game_id=data["game_id"]).exists():
                 raise serializers.ValidationError(
                     "This game is already saved to your library"
                 )
