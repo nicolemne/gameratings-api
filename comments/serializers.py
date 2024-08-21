@@ -9,7 +9,7 @@ class CommentSerializer(serializers.ModelSerializer):
     Adds three extra fields when returning a list of Comment instances
     """
 
-    owner = serializers.SerializerMethodField()
+    owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
@@ -25,12 +25,6 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
-
-    def get_owner(self, obj):
-        username = obj.owner.username
-        if len(username) > 13:
-            return f"{username[:13]}..."
-        return usernameF
 
     class Meta:
         model = Comment
