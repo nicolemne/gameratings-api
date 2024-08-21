@@ -8,7 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     Serializer for the Profile model
     """
 
-    owner = serializers.ReadOnlyField(source="owner.username")
+    owner = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
     posts_count = serializers.ReadOnlyField()
@@ -22,10 +22,15 @@ class ProfileSerializer(serializers.ModelSerializer):
     def get_following_id(self, obj):
         user = self.context["request"].user
         if user.is_authenticated:
-            following = Follower.objects.filter(
-                owner=user, followed=obj.owner).first()
+            following = Follower.objects.filter(owner=user, followed=obj.owner).first()
             return following.id if following else None
         return None
+
+    def get_owner(self, obj):
+        username = obj.owner.username
+        if len(username) > 13:
+            return f"{username[:13]}..."
+        return username
 
     class Meta:
         model = Profile

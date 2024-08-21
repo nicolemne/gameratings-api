@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
     Serializer for the Post model
     """
 
-    owner = serializers.ReadOnlyField(source="owner.username")
+    owner = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
@@ -54,6 +54,12 @@ class PostSerializer(serializers.ModelSerializer):
         if obj.game and hasattr(obj.game, "average_star_rating"):
             return round(obj.game.average_star_rating, 1)
         return None
+
+    def get_owner(self, obj):
+        username = obj.owner.username
+        if len(username) > 13:
+            return f"{username[:13]}..."
+        return username
 
     class Meta:
         model = Post
