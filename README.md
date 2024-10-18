@@ -3,10 +3,6 @@
 
 ### **Welcome to GG Ratings API README.**
 
-"""
-introduction
-"""
-
 ![API welcome message](assets/readme/api-welcome-message.png)
 
 View API:
@@ -99,9 +95,10 @@ The GG Ratings API project is managed using Agile methodology. The following too
 
 ## Future Implementations
 
-"""
-include future implementations
-"""
+- Filtering
+- Image caching
+- Character number limitations to comments and profile biography. 
+- Tags
 
 # Features of the GG Ratings API
 The GG Ratings API consists of multiple apps, each with its unique model, views, URLs, and serializers. This structure provides a well-organized and scalable approach to managing the various aspects of the API.
@@ -124,27 +121,40 @@ Users can access the API data through https://gameratings-api-d04888e8239b.herok
 
 Each of these endpoints is made to give a complete and easy-to-use way to work with game-related data. The API's model design keeps each feature separate, which makes it easier to manage and add new functions later on.
 
+---
+
 # Technologies and Credits
 
 ## Languages
-- Python
-- Git
+- Python - Programming language for backend development
+- Git - Version control
 
 ## Frameworks
-- Django REST Framework
-- Django
+- Django REST Framework - Toolkit for building Web APIs in Django
+- Django - Python web framework for building web applications
+
 
 ## Programs, Platforms and Services
-- Cloudinary
-- Heroku
-- PostgreSQL from Code Institute
-- Postman
-- Coverage
-- Canva
-- draw.io
+- Cloudinary - Image hosting
+- Heroku - Cloud application platform for deployment
+- PostgreSQL from Code Institute - Database management system
+- Postman - Tool for testing APIs
+- Coverage - Tool for measuring code coverage in tests
+- Canva - Design tool for graphics and social media
+- draw.io - Tool for drawing up the Entity Relationship Diagram (ERD)
 
 ## Libraries and Dependencies
-See [requirements.txt](requirements.txt)
+For full list of requirements, please see [requirements.txt](requirements.txt).
+
+- dj-rest-auth - Provides authentication and registration for Django REST Framework
+- django-allauth - Integrated set of Django applications addressing authentication, registration, account management, and more
+- django-cloudinary-storage - Cloudinary storage backend for Django
+- django-filter - A reusable Django application for allowing users to filter querysets
+- gunicorn - Python WSGI HTTP Server
+- Pillow - Python Imaging Library for opening, manipulating, and saving many different image file formats
+- psycopg2 - PostgreSQL database adapter for Python
+- whitenoise - Simplifies the usage of static files in a Django application
+
 
 # Testing
 
@@ -160,12 +170,9 @@ The pagination error is something I will look into at a later point in time.
 
 
 ## Manual testing
-All API endpoints have been manually tested by creating, retrieving, updating, and deleting posts both through the Django Rest Framework admin site.
+All API endpoints have been manually tested by creating, retrieving, updating, and deleting posts both through the Django Rest Framework admin site and in the development server.
 
-"""
-do further manual testing during frontend production
-include testing.md in the frontend repository
-"""
+Further extensive testing has been made during the development of the front-end application. This includes ensuring that all endpoints work correctly when integrated with the front-end UI. Detailed testing steps will be documented in the [TESTING.md](https://github.com/nicolemne/gameratings-frontend/blob/main/TESTING.md) file, which will be included in the frontend repository.
 
 ## Coverage Report
 
@@ -194,7 +201,7 @@ I have used [Code Institute Python Linter](https://pep8ci.herokuapp.com/#) to te
 
 This process has helped me to:
 
-- Clean and beautify my code
+- Clean up and beautify my code
 - Remove unnecessary comments
 - Follow consistent naming conventions
 - Ensure a good overall code quality and readability
