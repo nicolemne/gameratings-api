@@ -74,7 +74,7 @@ The GG Ratings API project is managed using Agile methodology. The following too
 
 - [Project Kanban Board](https://https://github.com/users/nicolemne/projects/9): The Kanban board helps us see the project's progress. It shows tasks in different stages like "To Do," "In Progress," and "Done," making it easy to track work and spot any issues.
 - [Milestones](https://github.com/nicolemne/gameratings-api/milestones): Milestones are major goals and deadlines for the project. Each milestone represents a big step or deliverable that needs to be finished by a certain date. This helps plan and track the progress towards the project's main goals.
-- [Issues](https://github.com/nicolemne/gameratings-api/issues): Issues are used to keep track of bugs, improvements, and other tasks. Each issue has a description, labels, and assignments to team members. This helps everyone know what needs to be done and who is responsible.
+- [Issues](https://github.com/nicolemne/gameratings-api/issues): Issues are used to keep track of bugs, improvements, and other tasks. Each issue has a description, labels, and assignments to team members.
 
 ## Entity Relationship Diagram (ERD)
 
@@ -95,13 +95,11 @@ The GG Ratings API project is managed using Agile methodology. The following too
 
 ## Future Implementations
 
-- Filtering
-- Image caching
 - Character number limitations to comments and profile biography. 
+- Filtering
 - Tags
 
 # Features of the GG Ratings API
-The GG Ratings API consists of multiple apps, each with its unique model, views, URLs, and serializers. This structure provides a well-organized and scalable approach to managing the various aspects of the API.
 
 ## Admin Access
 A superuser can log in through the Django admin site to manage the backend and administer the User model. This allows for efficient administration and control over user data and permissions. Additionally, only a superuser can add or delete new instances of the Platform and Genre models, however, all users can select a platform and genre when creating a new game instance. 
@@ -109,7 +107,7 @@ A superuser can log in through the Django admin site to manage the backend and a
 ## User Access
 Users can access the API data through https://gameratings-api-d04888e8239b.herokuapp.com/ and the corresponding URLs for each API endpoint.
 
-- [Games](https://gameratings-api-d04888e8239b.herokuapp.com/games/): This endpoint provides access to the games data. Users can add new game instances, retrieve information about various games, including details such as title, genre, platform, and ratings.
+- [Games](https://gameratings-api-d04888e8239b.herokuapp.com/games/): This endpoint provides access to the games data. Users can add new game instances, and retrieve information about various games, including details such as title, genre, platform, and ratings.
 - [Saved Games](https://gameratings-api-d04888e8239b.herokuapp.com/saved_games/): Users need to be logged in to view saved games. This endpoint allows users to save and manage their favourite games, enabling them to quickly access games they are interested in.
 - [Platforms](https://gameratings-api-d04888e8239b.herokuapp.com/platforms/): This endpoint provides information about different gaming platforms. Users can explore various platforms and their associated games. Creation and deletion of platform instances can only be performed by a superuser.
 - [Genres](https://gameratings-api-d04888e8239b.herokuapp.com/genres/): The genres endpoint allows users to retrieve information about different game genres. Users can filter and explore games based on their preferred genres. Creation and deletion of genre instances can only be performed by a superuser.
@@ -134,7 +132,7 @@ Each of these endpoints is made to give a complete and easy-to-use way to work w
 - Django - Python web framework for building web applications
 
 
-## Programs, Platforms and Services
+## Programs, Platforms, and Services
 - Cloudinary - Image hosting
 - Heroku - Cloud application platform for deployment
 - PostgreSQL from Code Institute - Database management system
@@ -144,12 +142,12 @@ Each of these endpoints is made to give a complete and easy-to-use way to work w
 - draw.io - Tool for drawing up the Entity Relationship Diagram (ERD)
 
 ## Libraries and Dependencies
-For full list of requirements, please see [requirements.txt](requirements.txt).
+For a full list of requirements, please see [requirements.txt](requirements.txt).
 
 - dj-rest-auth - Provides authentication and registration for Django REST Framework
 - django-allauth - Integrated set of Django applications addressing authentication, registration, account management, and more
 - django-cloudinary-storage - Cloudinary storage backend for Django
-- django-filter - A reusable Django application for allowing users to filter querysets
+- django-filter - A reusable Django application for allowing users to filter query sets
 - gunicorn - Python WSGI HTTP Server
 - Pillow - Python Imaging Library for opening, manipulating, and saving many different image file formats
 - psycopg2 - PostgreSQL database adapter for Python
@@ -162,7 +160,7 @@ For full list of requirements, please see [requirements.txt](requirements.txt).
 
 Automated testing has been done in the following apps; *profiles*, *posts*, *platforms*, *genres*, *games* and *saved_games*. 
 
-The tests consists of both ListViewTests and DetailViewTests that check listing and retrieving with valid & invalid IDs, which ensure functionality of listing and retrieving data in the application works as expected.
+The tests consist of both ListViewTests and DetailViewTests that check listing and retrieving with valid & invalid IDs, which ensure the functionality of listing and retrieving data in the application works as expected.
 
 The pagination error is something I will look into at a later point in time.
 
@@ -172,7 +170,7 @@ The pagination error is something I will look into at a later point in time.
 ## Manual testing
 All API endpoints have been manually tested by creating, retrieving, updating, and deleting posts both through the Django Rest Framework admin site and in the development server.
 
-Further extensive testing has been made during the development of the front-end application. This includes ensuring that all endpoints work correctly when integrated with the front-end UI. Detailed testing steps will be documented in the [TESTING.md](https://github.com/nicolemne/gameratings-frontend/blob/main/TESTING.md) file, which will be included in the frontend repository.
+Further extensive testing has been done during the development of the front-end application. This includes ensuring that all endpoints work correctly when integrated with the front-end UI. Detailed testing steps will be documented in the [TESTING.md](https://github.com/nicolemne/gameratings-frontend/blob/main/TESTING.md) file, which will be included in the frontend repository.
 
 ## Coverage Report
 
@@ -186,7 +184,7 @@ I have generated a Coverage report following these steps in the terminal:
 View Coverage report here: [page 1](/assets/readme/coverage1.png) and [page 2.](/assets/readme/coverage2.png)
 
 ## Postman Report
-I have used Postman to generate a few tests to check some key functionality to my API. The tests include checking response times, response status, validating structure and data types. Tests were generated by Postman in the Postman application.
+I have used Postman to generate a few tests to check some key functionality of my API. The tests include checking response times, and response status, and validating structure and data types. Tests were generated by Postman in the Postman application.
 
 ![/posts/](/assets/readme/postman_posts.png)
 ![/posts/2](/assets/readme/postman_posts_2.png)
@@ -208,17 +206,17 @@ This process has helped me to:
 
 ### Overview
 
-| **Component**  | **Model** | **Serializer** | **Views** | **URLs** | **Forms** | **Signals** |
+| **Component** | **Model** | **Serializer** | **Views** | **URLs** | **Forms** | **Signals** |
 |----------------|-----------|----------------|-----------|----------|-----------|-------------|
-| **Comments**   | [Model](assets/readme/pylint_comment_model.png) | [Serializer](assets/readme/pylint_comment_serializer.png) | [Views](assets/readme/pylint_comment_views.png) | [URLs](assets/readme/pylint_comment_urls.png) |           |             |
-| **Followers**  | [Model](assets/readme/pylint_followers_model.png) | [Serializer](assets/readme/pylint_followers_serializer.png) | [Views](assets/readme/pylint_followers_views.png) | [URLs](assets/readme/pylint_followers_urls.png) |           |             |
-| **Games**      | [Model](assets/readme/pylint_games_model.png) | [Serializer](assets/readme/pylint_games_serializer.png) | [Views](assets/readme/pylint_games_views.png) | [URLs](assets/readme/pylint_games_urls.png) | [Forms](assets/readme/pylint_games_forms.png) |             |
-| **Genres**     | [Model](assets/readme/pylint_genres_model.png) | [Serializer](assets/readme/pylint_genres_serializer.png) | [Views](assets/readme/pylint_genres_views.png) | [URLs](assets/readme/pylint_genres_urls.png) |           |             |
-| **Likes**      | [Model](assets/readme/pylint_likes_model.png) | [Serializer](assets/readme/pylint_likes_serializer.png) | [Views](assets/readme/pylint_likes_views.png) | [URLs](assets/readme/pylint_likes_urls.png) |           |             |
-| **Platforms**  | [Model](assets/readme/pylint_platforms_model.png) | [Serializer](assets/readme/pylint_platforms_serializer.png) | [Views](assets/readme/pylint_platforms_views.png) | [URLs](assets/readme/pylint_platforms_urls.png) | [Forms](assets/readme/pylint_platforms_forms.png) |             |
-| **Posts**      | [Model](assets/readme/pylint_posts_model.png) | [Serializer](assets/readme/pylint_posts_serializer.png) | [Views](assets/readme/pylint_posts_views.png) | [URLs](assets/readme/pylint_posts_urls.png) | [Forms](assets/readme/pylint_posts_forms.png) | [Signals](assets/readme/pylint_posts_signals.png) |
-| **Profiles**   | [Model](assets/readme/pylint_profiles_model.png) | [Serializer](assets/readme/pylint_profiles_serializer.png) | [Views](assets/readme/pylint_profiles_views.png) | [URLs](assets/readme/pylint_profiles_urls.png) |           |             |
-| **Saved Games**| [Model](assets/readme/pylint_savedgames_model.png) | [Serializer](assets/readme/pylint_savedgames_serializer.png) | [Views](assets/readme/pylint_savedgames_views.png) | [URLs](assets/readme/pylint_savedgames_urls.png) |           |             |
+| **Comments** | [Model](assets/readme/pylint_comment_model.png) | [Serializer](assets/readme/pylint_comment_serializer.png) | [Views](assets/readme/pylint_comment_views.png) | [URLs](assets/readme/pylint_comment_urls.png) |           |             |
+| **Followers** | [Model](assets/readme/pylint_followers_model.png) | [Serializer](assets/readme/pylint_followers_serializer.png) | [Views](assets/readme/pylint_followers_views.png) | [URLs](assets/readme/pylint_followers_urls.png) |           |             |
+| **Games** | [Model](assets/readme/pylint_games_model.png) | [Serializer](assets/readme/pylint_games_serializer.png) | [Views](assets/readme/pylint_games_views.png) | [URLs](assets/readme/pylint_games_urls.png) | [Forms](assets/readme/pylint_games_forms.png) |             |
+| **Genres** | [Model](assets/readme/pylint_genres_model.png) | [Serializer](assets/readme/pylint_genres_serializer.png) | [Views](assets/readme/pylint_genres_views.png) | [URLs](assets/readme/pylint_genres_urls.png) |           |             |
+| **Likes** | [Model](assets/readme/pylint_likes_model.png) | [Serializer](assets/readme/pylint_likes_serializer.png) | [Views](assets/readme/pylint_likes_views.png) | [URLs](assets/readme/pylint_likes_urls.png) |           |             |
+| **Platforms** | [Model](assets/readme/pylint_platforms_model.png) | [Serializer](assets/readme/pylint_platforms_serializer.png) | [Views](assets/readme/pylint_platforms_views.png) | [URLs](assets/readme/pylint_platforms_urls.png) | [Forms](assets/readme/pylint_platforms_forms.png) |             |
+| **Posts** | [Model](assets/readme/pylint_posts_model.png) | [Serializer](assets/readme/pylint_posts_serializer.png) | [Views](assets/readme/pylint_posts_views.png) | [URLs](assets/readme/pylint_posts_urls.png) | [Forms](assets/readme/pylint_posts_forms.png) | [Signals](assets/readme/pylint_posts_signals.png) |
+| **Profiles** | [Model](assets/readme/pylint_profiles_model.png) | [Serializer](assets/readme/pylint_profiles_serializer.png) | [Views](assets/readme/pylint_profiles_views.png) | [URLs](assets/readme/pylint_profiles_urls.png) |           |             |
+| **Saved Games**| [Model](assets/readme/pylint_savedgames_model.png) | [Serializer](assets/readme/pylint_savedgames_serializer.png) | [Views](assets/readme/pylint_savedgames_views.png) | [URLs](assets/readme/pylint_savedgames_urls.png) |           |             |
 
 
 # Bugs
@@ -237,7 +235,7 @@ After updating the permissions to only allow superusers to handle game instance 
 
 [Bug 1: AttributeError Game object](/assets/readme/games-no-owner.png)
 
-I thought that by removing `return obj.owner == request.user` in the custom permission "IsAdminOrOwnerOrReadOnly", it would solve the issue. Instead, I got a new error saying: `No such column: posts_post.game_id`.
+I thought that removing `return obj.owner == request.user` in the custom permission "IsAdminOrOwnerOrReadOnly", would solve the issue. Instead, I got a new error saying: `No such column: posts_post.game_id`.
 
 [Bug 1: OperationalError](/assets/readme/no-such-column.png)
 
@@ -248,7 +246,7 @@ I added `default=1` to the game field in the Post model so that the database kno
 
 ### Bug fix 2
 
-When I implemented the platform app and model, I had written the code to import the Game model from the games app with a variable with a Foreign Key assigned to it. The Game model was also referencing the Platform model, and since they were both importing each other I ran into a circular import loop, which I learned could be fixed by removing the model imports and adding a string in the variable, to only import when neccesary.
+When I implemented the platform app and model, I had written the code to import the Game model from the games app with a variable with a Foreign Key assigned to it. The Game model was also referencing the Platform model, and since they were both importing each other I ran into a circular import loop, which I learned could be fixed by removing the model imports and adding a string in the variable, to only import when necessary.
 
 [Bug 2: Circular import](/assets/readme/circular-import.png)
 
@@ -281,7 +279,7 @@ This issue was resolved by writing a new permission class IsUserorReadOnly that 
 
 ### Bug fix 4
 
-While running tests for the PostListView, I encountered a runtime warning: DateTimeField Platform.release_date received a naive datetime while time zone support is active. I learned that this warning occurs because the datetime.now() function returns a naive datetime object, which does not include any timezone information. Django expects datetime objects to be timezone-aware to handle time-related data correctly.
+While running tests for the PostListView, I encountered a runtime warning: DateTimeField Platform.release_date received a naive datetime while time zone support was active. I learned that this warning occurs because of the datetime.now() function returns a naive datetime object, which does not include any timezone information. Django expects datetime objects to be timezone-aware to handle time-related data correctly.
 
 [Bug 4: RuntimeWarning: DateTimeField](/assets/readme/runtimewarning.png)
 
@@ -320,26 +318,26 @@ If you wish to clone my project, please see the following steps below:
 4. Use git clone + the URL in your terminal, or unpack the ZIP containing the project
 
 ### **Create a Django REST Framework Project**
-1. Install Django along with supporting libraries such as: Gunicorn, Cloudinary, psycopg2, Pillow, and Allauth.
-2. Create project: `django-admin startproject project_name`
-3. Similarly, create app: `python manage.py startapp app_name`
-4. Create file for requirements: `pip freeze --local > requirements.txt` 
-   - Remember to repeat this step everytime you install a new library or dependency
+1. Install Django along with supporting libraries such as Gunicorn, Cloudinary, psycopg2, Pillow, and Allauth.
+2. Create a project: `django-admin startproject project_name`
+3. Similarly, create an app: `python manage.py startapp app_name`
+4. Create a file for requirements: `pip freeze --local > requirements.txt` 
+   - Remember to repeat this step every time you install a new library or dependency
 5. Add your apps to `INSTALLED_APPS` in settings.py file: `'app_name',`
 6. Follow the steps in [Setting up Environment Variables](#setting-up-environment-variables) to set up your:
-   - DEV
-   - SECRET_KEY
-   - DATABASE_URL
-   - ALLOWED_HOSTS
-   - CLOUDINARY_URL
+   - DEV
+   - SECRET_KEY
+   - DATABASE_URL
+   - ALLOWED_HOSTS
+   - CLOUDINARY_URL
 7. Migrate changes: `python manage.py migrate`
 8. Run server locally: `python manage.py runserver`
 
 ### **Setting up Environment Variables**
 
 1. Create an env.py and Procfile file. These should all be located at the top level of your project directory. 
-   - In the terminal: `touch Procfile`
-   - In the terminal: `touch env.py`
+   - In the terminal: `touch Procfile`
+   - In the terminal: `touch env.py`
 2. Add env.py to the .gitignore file.
 3. In env.py import the os library: `import os`
 4. In env.py, below import os, add `os.environ["DATABASE_URL"] = "databaseurl"`
@@ -404,4 +402,4 @@ I would like to thank and acknowledge the following people, who have shown inval
 - Dan Ford, not only as my boyfriend but also as my biggest supporter. His unwavering encouragement and belief in my abilities have been a constant source of motivation and inspiration. I am truly grateful to have him by my side throughout this journey.
 - Antonio Rodriquez, my new mentor at Code Institute. Antonio has been incredibly helpful, showing great patience and providing informative guidance throughout the project. His expertise and support have made a significant impact on my learning and development.
 - Joseph Doble has offered valuable assistance with sourcing relevant information and explaining the intricacies of various concepts. His help has been greatly appreciated.
-- Tutor Support, their patience and willingness to address my endless questions have been instrumental in my learning process and growth.
+- Tutor Support, their patience, and willingness to address my endless questions have been instrumental in my learning process and growth.
